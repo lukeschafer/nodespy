@@ -1,0 +1,12 @@
+{
+  "name"          : "nodespy",
+  "description"   : "create spies for unit testing",
+  "url"           : "",
+  "keywords"      : ["test", "unit", "unittest", "tdd", "mock", "spy"],
+  "author"        : "Luke Schafer <luke.schafer@gmail.com>",
+  "contributors"  : [],
+  "dependencies"  : {},
+  "version"       : "0.1",
+  "main"          : "./index.js",
+  "engines"       : { "node": ">=0.3.6" }
+}
