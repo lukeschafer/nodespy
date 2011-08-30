@@ -32,16 +32,20 @@ Was it called with particular arguments?
 
     spied.called('a', 2, foo);
 
+Was it called, but I don't care about one of the args?
+
+    spied.called('a', spy.anything, foo);
+
 Was it called, but it's complex to check?
 
     spied.matched(function(argsArray) {
-        return (argsArray[0] == 'a')
+        return (argsArray[0] < 2 && argsArray[1] != null)
     });
 
 Like above, but return the first set of matching args
 
     var args = spied.where(function(argsArray) {
-	return (argsArray[0] == 'a');	
+        return (argsArray[0] < 2 && argsArray[1] != null)
     });
 
 Just get the call args for the last call
@@ -68,7 +72,14 @@ Reset all on a spied object
 
     mock.resetAll();
 
-Check if the function was called
+## Coming Soon
+
+Plans to add the following
+
+  - .when(fn) - run a function when the spied function is called. This is not a substitute(mock/fake) for the original function
+  - some way to query return values rather than just getting the last
+  - custom assertions such as assert.called() as sugar for assert.ok(spied.called());
+  - MAYBE: .do(fn) - substitute(mock.fake)/replace the original function (maintaining spy functionality)
 
 ## License: The MIT License
 
