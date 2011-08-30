@@ -64,8 +64,8 @@ Spy on all functions in a graph (including functions on children and in arrays)
 
     var mock = spy.all({
         foo: function() {},
-	bar: { foo2: function() {} },
-	baz: [ function() {}, function() {} ]
+        bar: { foo2: function() {} },
+        baz: [ function() {}, function() {} ]
     });
 
 Reset all on a spied object
