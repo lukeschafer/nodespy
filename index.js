@@ -6,7 +6,7 @@ var spy = module.exports = function(func) {
 	var me = function() {
 		me.times++;
 		args.push(arguments);
-		var ret = func.apply(this, arguments);
+		var ret = func.apply(parent, arguments);
 		returns.push(ret);
 		return ret;
 	};
@@ -26,8 +26,15 @@ var spy = module.exports = function(func) {
 				}
 			}
 			if (goodSoFar) return true;
-		}
+	}
 		return false;
+	};
+	me.when = function(f) {
+		var original = func;
+		func = function() {
+			f.apply(parent, arguments);
+			return original.apply(parent, arguments);
+		}
 	};
 	me.where = function(f) {
 		for(var i = 0, l = args.length; i < l; i++) {
